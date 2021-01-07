@@ -5,9 +5,9 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
-    author: `@taylorbryant`,
+    title: `Netlify CMS Test Site`,
+    description: `Gatsby/Tailwind/NetlifyCMS`,
+    author: `@ethanrickaby`,
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
@@ -49,8 +49,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
+        path: `${__dirname}/content/products`,
+        name: `products`,
       },
     },
     {

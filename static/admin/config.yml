@@ -6,6 +6,26 @@ media_folder: "static/img"
 public_folder: '/img'
 
 collections:
+  - name: 'product'
+    label: 'Product'
+    folder: 'content/products'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Price', name: 'price', widget: 'number' }
+      - label: 'Images'
+        name: 'images'
+        widget: 'list'
+        fields:
+          - { label: Image, name: image, widget: image }
+          
   - label: 'Pages'
     name: 'pages'
     files:
@@ -14,5 +34,27 @@ collections:
         file: 'content/pages/home.md'
         fields:
           - { label: Title, name: title, widget: string }
-          - { label: Intro, name: intro, widget: markdown }
+          - { label: Intro, name: intro, widget: text }
           - { label: Background Image, name: background-img, widget: image }
+
+      - label: 'About Page'
+        name: 'about'
+        file: 'content/pages/about.md'
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Quote, name: quote, widget: text }
+          - { label: Portrait, name: portrait, widget: image }
+
+      - label: 'Products Page'
+        name: 'products'
+        file: 'content/pages/products.md'
+        fields:
+          - { label: Title, name: title, widget: string }
+          - label: Featured
+            name: featured
+            widget: relation
+            collection: product
+            value_field: title
+            search_fields: ['title']
+
+  

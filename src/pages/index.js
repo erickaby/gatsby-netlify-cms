@@ -1,15 +1,14 @@
 import React from "react";
 
-// import { graphql } from 'gatsby'
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import catAndHumanIllustration from "../images/cat-and-human-illustration.svg";
+// import catAndHumanIllustration from "../images/cat-and-human-illustration.svg";
 
-const IndexPage = () => {
-  // const settings = data.markdownRemark
-
-  // console.log(settings)
+const IndexPage = (props) => {
+  const { data } = props;
+  const { title, intro, background_img } = data.markdownRemark.frontmatter;
 
   return (
     <Layout>
@@ -18,40 +17,42 @@ const IndexPage = () => {
         title="Home"
       />
 
-      <section className="text-center">
-        <img
-          alt="Cat and human sitting on a couch"
-          className="block w-1/2 mx-auto mb-8"
-          src={catAndHumanIllustration}
-        />
-
-        <h2 className="inline-block p-3 mb-4 text-2xl font-bold bg-yellow-400">
-          Hey there! Welcome to your first Gatsby site.
-        </h2>
-
-        <p className="leading-loose">
-          This is a barebones starter for Gatsby styled using{` `}
-          <a
-            className="font-bold text-gray-900 no-underline"
-            href="https://tailwindcss.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Tailwind CSS
-          </a>
-          , a utility-first CSS framework.
-        </p>
+      <section>
+        <div className="grid grid-cols-2 gap-8">
+          <div className="">
+            <h1 className="inline-block mb-4 text-4xl font-bold">
+              {title}
+            </h1>
+            <p className="leading-loose text-gray-500">{intro}</p>
+          </div>
+          <img
+            alt="Cat and human sitting on a couch"
+            className="block mx-auto rounded-lg"
+            src={background_img}
+          />
+        </div>
       </section>
+
+      <section>
+        
+      </section>
+
+      <section className="text-center"></section>
     </Layout>
   );
-}
+};
 
 export default IndexPage;
 
-// export const pageQuery = graphql`
-//   query HomePage {
-//     markdownRemark(path: "/pages/home/") {
-//       title
-//     }
-//   }
-// `
+export const pageQuery = graphql`
+  query HomePage {
+    markdownRemark(fields: { slug: { eq: "/home/" } }) {
+      id
+      frontmatter {
+        title
+        intro
+        background_img
+      }
+    }
+  }
+`;

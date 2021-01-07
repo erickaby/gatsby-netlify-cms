@@ -54,6 +54,10 @@ function Header() {
         >
           {[
             {
+              route: `/products`,
+              title: `Products`,
+            },
+            {
               route: `/about`,
               title: `About`,
             },

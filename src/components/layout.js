@@ -18,15 +18,15 @@ function Layout({ children }) {
             Created by{` `}
             <a
               className="font-bold no-underline"
-              href="https://bryant.io"
+              href="https://forerunner.com.au"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Taylor Bryant
+              Forerunner
             </a>
           </p>
 
-          <p>
+          {/* <p>
             <a
               className="font-bold text-white no-underline"
               href="https://github.com/taylorbryant/gatsby-starter-tailwind"
@@ -35,7 +35,7 @@ function Layout({ children }) {
             >
               GitHub
             </a>
-          </p>
+          </p> */}
         </nav>
       </footer>
     </div>
