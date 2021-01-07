@@ -1,10 +1,16 @@
 import React from "react";
 
+// import { graphql } from 'gatsby'
+
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import catAndHumanIllustration from "../images/cat-and-human-illustration.svg";
 
-function IndexPage() {
+const IndexPage = () => {
+  // const settings = data.markdownRemark
+
+  // console.log(settings)
+
   return (
     <Layout>
       <SEO
@@ -41,3 +47,11 @@ function IndexPage() {
 }
 
 export default IndexPage;
+
+// export const pageQuery = graphql`
+//   query HomePage {
+//     markdownRemark(path: "/pages/home/") {
+//       title
+//     }
+//   }
+// `
