@@ -1,5 +1,5 @@
-import { graphql, useStaticQuery, Link } from "gatsby";
-import React, { useState } from "react";
+import { graphql, useStaticQuery, Link } from 'gatsby';
+import React, { useState } from 'react';
 
 function Header() {
   const [isExpanded, toggleExpansion] = useState(false);
@@ -14,10 +14,10 @@ function Header() {
   `);
 
   return (
-    <header className="bg-green-700">
+    <header>
       <div className="flex flex-wrap items-center justify-between max-w-4xl p-4 mx-auto md:p-8">
         <Link to="/">
-          <h1 className="flex items-center text-white no-underline">
+          <h1 className="flex items-center text-gray-800 no-underline">
             <svg
               className="w-8 h-8 mr-2 fill-current"
               height="54"
@@ -34,7 +34,7 @@ function Header() {
         </Link>
 
         <button
-          className="items-center block px-3 py-2 text-white border border-white rounded md:hidden"
+          className="items-center block px-3 py-2 text-gray-800 border border-white rounded md:hidden"
           onClick={() => toggleExpansion(!isExpanded)}
         >
           <svg
@@ -54,6 +54,10 @@ function Header() {
         >
           {[
             {
+              route: `/blog`,
+              title: `Blog`,
+            },
+            {
               route: `/products`,
               title: `Products`,
             },
@@ -67,7 +71,7 @@ function Header() {
             },
           ].map((link) => (
             <Link
-              className="block mt-4 text-white no-underline md:inline-block md:mt-0 md:ml-6"
+              className="block mt-4 text-gray-800 no-underline md:inline-block md:mt-0 md:ml-6"
               key={link.title}
               to={link.route}
             >

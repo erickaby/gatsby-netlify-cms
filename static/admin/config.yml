@@ -2,10 +2,28 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "static/img"
+media_folder: 'static/img'
 public_folder: '/img'
 
 collections:
+  - name: 'post'
+    label: 'Post'
+    folder: 'content/posts'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'date' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Short Description'
+        name: 'short-description'
+        widget: 'text'
+
   - name: 'product'
     label: 'Product'
     folder: 'content/products'
@@ -25,7 +43,7 @@ collections:
         widget: 'list'
         fields:
           - { label: Image, name: image, widget: image }
-          
+
   - label: 'Pages'
     name: 'pages'
     files:
@@ -56,5 +74,3 @@ collections:
             collection: product
             value_field: title
             search_fields: ['title']
-
-  
